@@ -3,7 +3,11 @@ guid: e07be5a2e2c1f46c5a4ddf19db68dd22
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - syurikenPrefab: {fileID: 3902150182339311943, guid: f39906ac3bbd04263962ae73915fe9a4,
+      type: 3}
+  - sinobiPrefab: {fileID: 9131164008362583126, guid: 3584532bb95c34abcb33781a71147658,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

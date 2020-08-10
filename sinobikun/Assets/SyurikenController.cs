@@ -19,7 +19,15 @@ public class SyurikenController : MonoBehaviour
         pos.x+=speed*Time.deltaTime;
         transform.position=pos;
         time+=Time.deltaTime;
-        if(time>5.0f)
+        if(time>3.0f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.gameObject.tag=="enemy")
         {
             Destroy(gameObject);
         }

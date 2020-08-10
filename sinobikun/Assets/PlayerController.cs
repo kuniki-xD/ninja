@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rigid2D;
     float jumpForce=680.0f;
     float walkForce=30.0f;
-    float maxWalkSpeed=2.0f;
+    float maxWalkSpeed=6.0f;
 
     public GameObject syurikenPrefab;
+    public GameObject sinobiPrefab;
 
     void Start()
     {
@@ -26,11 +27,11 @@ public class PlayerController : MonoBehaviour
 
         //左右移動
         int key=0;
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.RightArrow))
         {
             key=1;
         }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.LeftArrow))
         {
             key=-1;
         }
@@ -58,4 +59,9 @@ public class PlayerController : MonoBehaviour
             obj.transform.position=transform.position;
         }
     }
+
+    public void Spawn()
+    {
+        Instantiate(sinobiPrefab,new Vector3(transform.position.x-0.10f,transform.position.y,transform.position.z),Quaternion.identity);
+    } 
 }
