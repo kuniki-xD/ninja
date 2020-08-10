@@ -1,2 +1,1 @@
-aaaaaaaaaaaaaaaa
-
+# Ninjaゲームの決定版
