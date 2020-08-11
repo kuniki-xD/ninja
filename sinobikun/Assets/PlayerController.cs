@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
     float maxWalkSpeed=6.0f;
 
     public GameObject syurikenPrefab;
-    public GameObject sinobiPrefab;
+    public GameObject bunsinPrefab;
+
+    public int bunsincount=0;
 
     void Start()
     {
@@ -57,11 +59,18 @@ public class PlayerController : MonoBehaviour
             GameObject obj;
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
+            Spawn();
+            Debug.Log(bunsincount);
         }
     }
-
     public void Spawn()
     {
-        Instantiate(sinobiPrefab,new Vector3(transform.position.x-0.10f,transform.position.y,transform.position.z),Quaternion.identity);
+        Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity);
+        bunsincount++;
     } 
+
+    public int GetBunsinCount()
+    {
+        return bunsincount;
+    }
 }

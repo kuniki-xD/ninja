@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - syurikenPrefab: {fileID: 3902150182339311943, guid: f39906ac3bbd04263962ae73915fe9a4,
       type: 3}
-  - sinobiPrefab: {fileID: 9131164008362583126, guid: 3584532bb95c34abcb33781a71147658,
+  - bunsinPrefab: {fileID: 1799474671700564452, guid: ae8f1b5ec5d9c43c38daac369757f609,
       type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
