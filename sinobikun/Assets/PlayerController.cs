@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject syurikenPrefab;
     public GameObject bunsinPrefab;
+    public GameObject dodaiPrefab;
 
     public int sinobicount=0;
 
@@ -59,7 +60,14 @@ public class PlayerController : MonoBehaviour
             GameObject obj;
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
+        }
+        if(Input.GetKeyDown(KeyCode.W))
+        {
             Spawn();
+        }
+        if(Input.GetKeyDown(KeyCode.R)&& this.rigid2D.velocity.y==0)
+        {
+            Dodai();
         }
     }
     public void Spawn()
@@ -74,5 +82,10 @@ public class PlayerController : MonoBehaviour
             Instantiate(bunsinPrefab,new Vector3(transform.position.x-sinobicount,transform.position.y,transform.position.z),Quaternion.identity);
             sinobicount++;
         }    
+    }
+    public void Dodai()
+    {
+        Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y,transform.position.z),Quaternion.identity);
     } 
+
 }

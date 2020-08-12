@@ -11,7 +11,7 @@ public class bunsinController : MonoBehaviour
 
     private float b_speed=5.0f;
     private float b_attenuation=7.0f;
-
+    
     private Vector3 b_velocity;
 
     void Start()
@@ -23,16 +23,20 @@ public class bunsinController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            bunsincount++;
             GameObject obj;
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
+        }
+        if(Input.GetKeyDown(KeyCode.W))
+        {
+            bunsincount++;
         }
         if(bunsincount==0)
         {
             b_velocity+=(this.player.transform.position-transform.position)*b_speed;
             b_velocity*=b_attenuation;
             transform.position+=b_velocity*=Time.deltaTime;
+            
         }
         else if(bunsincount>0&&bunsincount<4)
         {

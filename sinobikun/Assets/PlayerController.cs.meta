@@ -8,6 +8,8 @@ MonoImporter:
       type: 3}
   - bunsinPrefab: {fileID: 1799474671700564452, guid: ae8f1b5ec5d9c43c38daac369757f609,
       type: 3}
+  - dodaiPrefab: {fileID: 6728185190523926742, guid: d7e180d6a46b7428cbabfa45c8e88367,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
