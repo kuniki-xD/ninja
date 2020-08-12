@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject syurikenPrefab;
     public GameObject bunsinPrefab;
 
-    public int bunsincount=0;
+    public int sinobicount=0;
 
     void Start()
     {
@@ -60,17 +60,19 @@ public class PlayerController : MonoBehaviour
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
             Spawn();
-            Debug.Log(bunsincount);
         }
     }
     public void Spawn()
     {
-        Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity);
-        bunsincount++;
+        if(sinobicount==0)
+        {
+            Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity);
+            sinobicount++;
+        }
+        else if(sinobicount>0&&sinobicount<4)
+        {
+            Instantiate(bunsinPrefab,new Vector3(transform.position.x-sinobicount,transform.position.y,transform.position.z),Quaternion.identity);
+            sinobicount++;
+        }    
     } 
-
-    public int GetBunsinCount()
-    {
-        return bunsincount;
-    }
 }

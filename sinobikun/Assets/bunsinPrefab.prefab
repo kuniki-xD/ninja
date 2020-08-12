@@ -94,3 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcad3713abc464fc8a587fb2bf375bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bunsincount: 0
+  syurikenPrefab: {fileID: 3902150182339311943, guid: f39906ac3bbd04263962ae73915fe9a4,
+    type: 3}
