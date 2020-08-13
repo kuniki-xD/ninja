@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e533cb33fac4f3096068b3052d995c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pc: {fileID: 395010204}
   health: 5
 --- !u!50 &218198643
 Rigidbody2D:
@@ -395,6 +396,8 @@ MonoBehaviour:
   syurikenPrefab: {fileID: 3902150182339311943, guid: f39906ac3bbd04263962ae73915fe9a4,
     type: 3}
   bunsinPrefab: {fileID: 1799474671700564452, guid: ae8f1b5ec5d9c43c38daac369757f609,
+    type: 3}
+  dodaiPrefab: {fileID: 6728185190523926742, guid: d7e180d6a46b7428cbabfa45c8e88367,
     type: 3}
   sinobicount: 0
 --- !u!50 &395010205
@@ -1315,6 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e533cb33fac4f3096068b3052d995c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pc: {fileID: 395010204}
   health: 5
 --- !u!1 &1765517574
 GameObject:

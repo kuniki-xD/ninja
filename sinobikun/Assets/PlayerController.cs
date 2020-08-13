@@ -61,10 +61,6 @@ public class PlayerController : MonoBehaviour
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
         }
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            Spawn();
-        }
         if(Input.GetKeyDown(KeyCode.R)&& this.rigid2D.velocity.y==0)
         {
             Dodai();

@@ -27,26 +27,11 @@ public class bunsinController : MonoBehaviour
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
         }
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            bunsincount++;
-        }
-        if(bunsincount==0)
-        {
-            b_velocity+=(this.player.transform.position-transform.position)*b_speed;
-            b_velocity*=b_attenuation;
-            transform.position+=b_velocity*=Time.deltaTime;
-            
-        }
-        else if(bunsincount>0&&bunsincount<4)
+        if(bunsincount>=0&&bunsincount<4)
         {
             b_velocity+=(this.player.transform.position-transform.position)*b_speed;
             b_velocity*=b_attenuation-bunsincount*1.5f;
             transform.position+=b_velocity*=Time.deltaTime;
-        }
-        else if(bunsincount>=4)
-        {
-            bunsincount--;
         }
         int key=0;
         if(Input.GetKey(KeyCode.RightArrow))
