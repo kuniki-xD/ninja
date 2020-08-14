@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         //動く方向に応じて反転
         if(key!=0)
         {
-            transform.localScale=new Vector3(-key,1,1);
+            transform.localScale=new Vector3(key,1,1);
         }
 
         //手裏剣発射処理
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Dodai()
     {
-        Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y,transform.position.z),Quaternion.identity);
+        Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
     } 
 
 }
