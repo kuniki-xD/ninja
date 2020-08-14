@@ -16,27 +16,30 @@ public class bunsinController : MonoBehaviour
 
     void Update()
     {
-        Vector3 playerPos=this.player.transform.position;
-        transform.position=new Vector3(playerPos.x-0.5f,playerPos.y,playerPos.z);
-        if(Input.GetKeyDown(KeyCode.E))
+        if (player != null)
         {
-            GameObject obj;
-            obj=Instantiate(syurikenPrefab);
-            obj.transform.position=transform.position;
-        }
-        int key=0;
-        if(Input.GetKey(KeyCode.RightArrow))
-        {
-            key=1;
-        }
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            key=-1;
-        }
+            Vector3 playerPos=this.player.transform.position;
+            transform.position=new Vector3(playerPos.x-0.5f,playerPos.y,playerPos.z);
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                GameObject obj;
+                obj=Instantiate(syurikenPrefab);
+                obj.transform.position=transform.position;
+            }
+            int key=0;
+            if(Input.GetKey(KeyCode.RightArrow))
+            {
+                key=1;
+            }
+            if(Input.GetKey(KeyCode.LeftArrow))
+            {
+                key=-1;
+            }
 
-        if(key!=0)
-        {
-            transform.localScale=new Vector3(-key,1,1);
+            if(key!=0)
+            {
+                transform.localScale=new Vector3(-key,1,1);
+            }
         }
     }
 }

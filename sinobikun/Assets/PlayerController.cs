@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using  UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -86,7 +87,8 @@ public class PlayerController : MonoBehaviour
 
         if(transform.position.y<-10)
         {
-            Destroy(gameObject);
+            // DestroyImmediate(gameObject);
+            SceneManager.LoadScene("Result");
         }
     }
 
@@ -99,7 +101,8 @@ public class PlayerController : MonoBehaviour
         }
         if(health<=0)
         {
-            Destroy(gameObject);
+            // DestroyImmediate(gameObject);
+            SceneManager.LoadScene("Result");
         }
     }
 
@@ -115,7 +118,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(bunsinPrefab,new Vector3(transform.position.x-sinobicount,transform.position.y,transform.position.z),Quaternion.identity);
             sinobicount++;
-        }    
+        }
     }
     public void Dodai()
     {
