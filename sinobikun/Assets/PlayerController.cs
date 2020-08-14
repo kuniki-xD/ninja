@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+
+    Animator animator;
+
     float jumpForce=680.0f;
     float walkForce=30.0f;
     float maxWalkSpeed=6.0f;
@@ -27,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         this.rigid2D=GetComponent<Rigidbody2D>();
         this.aud=GetComponent<AudioSource>();
+        this.animator=GetComponent<Animator>();
     }
 
     void Update()
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
         //ジャンプ
         if(Input.GetKeyDown(KeyCode.Space) && this.rigid2D.velocity.y==0)
         {
+            this.animator.SetTrigger("JumpTrigger");
             this.rigid2D.AddForce(transform.up*this.jumpForce);
             this.aud.PlayOneShot(this.jumpSE);
         }
@@ -71,6 +76,7 @@ public class PlayerController : MonoBehaviour
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
             this.aud.PlayOneShot(this.syurikenSE);
+            this.animator.SetTrigger("AttackTrigger");
         }
         if(Input.GetKeyDown(KeyCode.R)&& this.rigid2D.velocity.y==0)
         {
