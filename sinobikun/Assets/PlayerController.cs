@@ -13,11 +13,20 @@ public class PlayerController : MonoBehaviour
     public GameObject bunsinPrefab;
     public GameObject dodaiPrefab;
 
+    public AudioClip jumpSE;
+    public AudioClip syurikenSE;
+    public AudioClip damageSE;
+    public AudioClip doronSE;
+    public AudioClip gekihaSE;
+    AudioSource aud;
+
     public int sinobicount=0;
+    public int health;
 
     void Start()
     {
         this.rigid2D=GetComponent<Rigidbody2D>();
+        this.aud=GetComponent<AudioSource>();
     }
 
     void Update()
@@ -26,6 +35,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && this.rigid2D.velocity.y==0)
         {
             this.rigid2D.AddForce(transform.up*this.jumpForce);
+            this.aud.PlayOneShot(this.jumpSE);
         }
 
         //左右移動
@@ -60,14 +70,36 @@ public class PlayerController : MonoBehaviour
             GameObject obj;
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
+            this.aud.PlayOneShot(this.syurikenSE);
         }
         if(Input.GetKeyDown(KeyCode.R)&& this.rigid2D.velocity.y==0)
         {
             Dodai();
+            this.aud.PlayOneShot(this.doronSE);
+        }
+
+        if(transform.position.y<-10)
+        {
+            Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        if(collider.gameObject.tag=="enemy")
+        {
+            this.aud.PlayOneShot(this.damageSE);
+            health--;
+        }
+        if(health<=0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void Spawn()
     {
+        this.aud.PlayOneShot(this.gekihaSE);
         if(sinobicount==0)
         {
             Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity);

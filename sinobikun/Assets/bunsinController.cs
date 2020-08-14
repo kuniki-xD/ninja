@@ -9,11 +9,6 @@ public class bunsinController : MonoBehaviour
     GameObject player;
     public GameObject syurikenPrefab;
 
-    private float b_speed=5.0f;
-    private float b_attenuation=7.0f;
-    
-    private Vector3 b_velocity;
-
     void Start()
     {
         this.player=GameObject.Find("sinobi");
@@ -21,17 +16,13 @@ public class bunsinController : MonoBehaviour
 
     void Update()
     {
+        Vector3 playerPos=this.player.transform.position;
+        transform.position=new Vector3(playerPos.x-0.5f,playerPos.y,playerPos.z);
         if(Input.GetKeyDown(KeyCode.E))
         {
             GameObject obj;
             obj=Instantiate(syurikenPrefab);
             obj.transform.position=transform.position;
-        }
-        if(bunsincount>=0&&bunsincount<4)
-        {
-            b_velocity+=(this.player.transform.position-transform.position)*b_speed;
-            b_velocity*=b_attenuation-bunsincount*1.5f;
-            transform.position+=b_velocity*=Time.deltaTime;
         }
         int key=0;
         if(Input.GetKey(KeyCode.RightArrow))
