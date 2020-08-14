@@ -15,13 +15,13 @@ public class BigEnemyController : MonoBehaviour
 
     void Update()
     {
-        time+=Time.deltaTime;
+        //time+=Time.deltaTime;
 
-        if(time>interval)
-        {
-            GameObject enemy=Instantiate(enemyPrefab);
-            enemy.transform.position=new Vector3(5,0,0);
-            time=0f;
-        }
+        //if(time>interval)
+        //{
+        //    GameObject enemy=Instantiate(enemyPrefab);
+        //    enemy.transform.position=new Vector3(5,0,0);
+        //    time=0f;
+        //}
     }
 }
