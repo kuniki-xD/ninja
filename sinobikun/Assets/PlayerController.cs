@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         //動く方向に応じて反転
         if(key!=0)
         {
-            transform.localScale=new Vector3(key,1,1);
+            transform.localScale=new Vector3(key,transform.localScale.y,transform.localScale.z);
         }
 
         //手裏剣発射処理
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
         if(collider.gameObject.tag=="enemy")
         {
             this.aud.PlayOneShot(this.damageSE);
+            this.animator.SetTrigger("HurtTrigger");
             health--;
         }
         if(health<=0)
@@ -123,6 +124,7 @@ public class PlayerController : MonoBehaviour
     public void Dodai()
     {
         Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
+        this.animator.SetTrigger("DodaiTrigger");
     } 
 
 }
