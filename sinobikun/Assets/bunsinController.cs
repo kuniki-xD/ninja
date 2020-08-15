@@ -6,40 +6,45 @@ public class bunsinController : MonoBehaviour
 {
     public int bunsincount=0;
 
+    [SerializeField] private float _velocity = 0.5f;
+    private int _direction = 1;
+
     GameObject player;
     public GameObject syurikenPrefab;
 
     void Start()
     {
         this.player=GameObject.Find("sinobi");
-    }
-
-    void Update()
-    {
         if (player != null)
         {
             Vector3 playerPos=this.player.transform.position;
             transform.position=new Vector3(playerPos.x-0.5f,playerPos.y,playerPos.z);
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                GameObject obj;
-                obj=Instantiate(syurikenPrefab);
-                obj.transform.position=transform.position;
-            }
-            int key=0;
-            if(Input.GetKey(KeyCode.RightArrow))
-            {
-                key=1;
-            }
-            if(Input.GetKey(KeyCode.LeftArrow))
-            {
-                key=-1;
-            }
+        }
+    }
 
-            if(key!=0)
-            {
-                transform.localScale=new Vector3(-key,1,1);
-            }
+    void Update()
+    {
+        Vector3 playerPos=transform.position;
+        transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),playerPos.y,playerPos.z);
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject obj;
+            obj=Instantiate(syurikenPrefab);
+            obj.transform.position=transform.position;
+        }
+
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            _direction = 1;
+        }
+        if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            _direction = -1;
+        }
+
+        if(_direction !=0)
+        {
+            transform.localScale=new Vector3(_direction,1,1);
         }
     }
 }

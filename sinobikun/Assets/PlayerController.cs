@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
         if(transform.position.y<-10)
         {
             // DestroyImmediate(gameObject);
-            SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         if(health<=0)
         {
             // DestroyImmediate(gameObject);
-            SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
