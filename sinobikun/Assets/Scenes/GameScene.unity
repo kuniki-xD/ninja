@@ -20982,6 +20982,7 @@ MonoBehaviour:
     type: 3}
   dodaiPrefab: {fileID: 4517251362391085466, guid: e5e5620e873e34b6c8250f9dc05ebce4,
     type: 3}
+  _direction: 1
   jumpSE: {fileID: 8300000, guid: da1a628a89b7649848a0eb3c33248e6b, type: 3}
   syurikenSE: {fileID: 8300000, guid: dee4d125b5b104551b65467b9ecd209b, type: 3}
   damageSE: {fileID: 8300000, guid: 6ebd3103d75d34d4f99c985e54f05c2c, type: 3}
@@ -21416,7 +21417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690289405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 7.5, z: 0}
+  m_LocalPosition: {x: -5.38, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 60, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
