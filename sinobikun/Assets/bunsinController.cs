@@ -26,12 +26,6 @@ public class bunsinController : MonoBehaviour
     {
         Vector3 playerPos=transform.position;
         transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),playerPos.y,playerPos.z);
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            GameObject obj;
-            obj=Instantiate(syurikenPrefab);
-            obj.transform.position=transform.position;
-        }
 
         if(Input.GetKey(KeyCode.RightArrow))
         {

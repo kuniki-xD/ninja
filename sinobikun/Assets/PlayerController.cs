@@ -28,11 +28,14 @@ public class PlayerController : MonoBehaviour
     public int health;
     public int syurikenhoukou;
 
+    private List<GameObject> bunsinObjectList;
+
     void Start()
     {
         this.rigid2D=GetComponent<Rigidbody2D>();
         this.aud=GetComponent<AudioSource>();
         this.animator=GetComponent<Animator>();
+        bunsinObjectList = new List<GameObject>();
     }
 
     void Update()
@@ -92,7 +95,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R)&& this.rigid2D.velocity.y==0)
         {
             Dodai();
-            this.aud.PlayOneShot(this.doronSE);
         }
 
         if(transform.position.y<-10)
@@ -122,18 +124,24 @@ public class PlayerController : MonoBehaviour
         this.aud.PlayOneShot(this.gekihaSE);
         if(sinobicount==0)
         {
-            Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity);
+            bunsinObjectList.Add(Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity) as GameObject);
             sinobicount++;
         }
         else if(sinobicount>0&&sinobicount<4)
         {
-            Instantiate(bunsinPrefab,new Vector3(transform.position.x-sinobicount,transform.position.y,transform.position.z),Quaternion.identity);
+            bunsinObjectList.Add(Instantiate(bunsinPrefab,new Vector3(transform.position.x-sinobicount,transform.position.y,transform.position.z),Quaternion.identity) as GameObject);
             sinobicount++;
         }
     }
     public void Dodai()
     {
-        Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
-        this.animator.SetTrigger("DodaiTrigger");
+        if (bunsinObjectList.Count > 0)
+        {
+            Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
+            this.animator.SetTrigger("DodaiTrigger");
+            // Destroy(bunsinObjectList(bunsinObjectList.Count - 1));
+            bunsinObjectList.RemoveAt(bunsinObjectList.Count - 1);
+            this.aud.PlayOneShot(this.doronSE);
+        }
     }
 }
