@@ -20,11 +20,11 @@ public class EnemyController : MonoBehaviour
         transform.position=new Vector3(Mathf.Sin(Time.time)*3.0f+targetpos.x,targetpos.y,targetpos.z);
         if(Mathf.Sin(Time.time)<=0)
         {
-            transform.localScale=new Vector3(1,transform.localScale.y,transform.localScale.z);
+            transform.localScale=new Vector3(transform.localScale.x*1,transform.localScale.y,transform.localScale.z);
         }
         if(Mathf.Sin(Time.time)>=0)
         {
-            transform.localScale=new Vector3(-1,transform.localScale.y,transform.localScale.z);
+            transform.localScale=new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
         }
     }   
 
