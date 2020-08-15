@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public GameObject bunsinPrefab;
     public GameObject dodaiPrefab;
 
+    public int _direction = 1;
+
     public AudioClip jumpSE;
     public AudioClip syurikenSE;
     public AudioClip damageSE;
@@ -61,11 +63,13 @@ public class PlayerController : MonoBehaviour
         float key=0;
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            key=1.13f;
+            _direction = 1;
+            key = 1.13f;
         }
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            key=-1.13f;
+            _direction = -1;
+            key = 1.13f;
         }
 
         //プレイヤの速度
@@ -74,13 +78,13 @@ public class PlayerController : MonoBehaviour
         //スピード制限
         if(speedx<this.maxWalkSpeed)
         {
-            this.rigid2D.AddForce(transform.right*key*this.walkForce);
+            this.rigid2D.AddForce(transform.right*key * _direction *this.walkForce);
         }
 
         //動く方向に応じて反転
         if(key!=0)
         {
-            transform.localScale=new Vector3(key,transform.localScale.y,transform.localScale.z);
+            transform.localScale=new Vector3(key * _direction,transform.localScale.y,transform.localScale.z);
         }
 
         //手裏剣発射処理

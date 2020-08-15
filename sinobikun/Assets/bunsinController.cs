@@ -9,12 +9,12 @@ public class bunsinController : MonoBehaviour
     [SerializeField] private float _velocity = 0.5f;
     private int _direction = 1;
 
-    GameObject player;
+    private GameObject player;
     public GameObject syurikenPrefab;
 
     void Start()
     {
-        this.player=GameObject.Find("sinobi");
+        this.player=GameObject.Find("idle01");
         if (player != null)
         {
             Vector3 playerPos=this.player.transform.position;
@@ -27,7 +27,14 @@ public class bunsinController : MonoBehaviour
 
         transform.localScale=new Vector3(1.13f,1.18f,transform.localScale.z);
         Vector3 playerPos=transform.position;
-        transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),player.transform.position.y,playerPos.z);
+        if (player != null)
+        {
+            transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),player.transform.position.y,playerPos.z);
+        }
+        else
+        {
+            Debug.Log("Playerがnull");
+        }
 
         if(Input.GetKey(KeyCode.RightArrow))
         {

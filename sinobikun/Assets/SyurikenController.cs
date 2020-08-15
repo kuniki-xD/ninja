@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class SyurikenController : MonoBehaviour
 {
-    [SerializeField] PlayerController pc;
-
     GameObject syuriken;
     private float speed=10.0f;
     private float time=0.0f;
+    private int _direction;
+
+    private PlayerController pc;
 
     void Start()
     {
-        
+        pc = GameObject.Find("idle01").GetComponent<PlayerController>();
+        _direction = pc._direction;
     }
 
     void Update()
     {
         Vector3 pos=transform.position;
-        pos.x+=speed*Time.deltaTime;
+        pos.x+= _direction*speed*Time.deltaTime;
         transform.position=pos;
     }
 
