@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class SmallEnemyController : MonoBehaviour
 {
+    public int health;
+    public int move;
     private Vector3 targetpos;
     void Start()
     {
-        targetpos=transform.position;
+        
     }
 
     void Update()
     {
-        transform.position=new Vector3((Time.time)*0.01f+targetpos.x,targetpos.y,targetpos.z);
+        Rigidbody2D rb = this.GetComponent<Rigidbody2D> ();
+        rb.velocity= new Vector3(move,0,0);
+        transform.localScale=new Vector3(4.7f,transform.localScale.y,transform.localScale.z);
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        health--;
+        if(health<=0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

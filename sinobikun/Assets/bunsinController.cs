@@ -16,6 +16,7 @@ public class bunsinController : MonoBehaviour
 
     void Update()
     {
+        transform.localScale=new Vector3(1.13f,1.18f,transform.localScale.z);
         if (player != null)
         {
             Vector3 playerPos=this.player.transform.position;

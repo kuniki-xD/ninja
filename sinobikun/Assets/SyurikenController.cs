@@ -28,6 +28,10 @@ public class SyurikenController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(collider.gameObject.tag=="bigenemy")
+        {
+            Destroy(gameObject);
+        }
     }
     void OnBecameInvisible()
     {
