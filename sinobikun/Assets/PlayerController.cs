@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
             this.animator.SetTrigger("DodaiTrigger");
-            // Destroy(bunsinObjectList(bunsinObjectList.Count - 1));
+            Destroy(bunsinObjectList[bunsinObjectList.Count - 1]);
             bunsinObjectList.RemoveAt(bunsinObjectList.Count - 1);
             this.aud.PlayOneShot(this.doronSE);
         }
