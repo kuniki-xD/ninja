@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public int sinobicount=0;
     public int health;
+    public int syurikenhoukou;
 
     void Start()
     {
@@ -36,6 +37,15 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(this.rigid2D.velocity.x>=0)
+        {
+            syurikenhoukou=1;
+        }
+        if(this.rigid2D.velocity.x<=0)
+        {
+            syurikenhoukou=-1;
+        }
+
         //ジャンプ
         if(Input.GetKeyDown(KeyCode.Space) && this.rigid2D.velocity.y==0)
         {
@@ -45,14 +55,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //左右移動
-        int key=0;
+        float key=0;
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            key=1;
+            key=1.13f;
         }
         if(Input.GetKey(KeyCode.LeftArrow))
         {
-            key=-1;
+            key=-1.13f;
         }
 
         //プレイヤの速度
@@ -125,6 +135,5 @@ public class PlayerController : MonoBehaviour
     {
         Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
         this.animator.SetTrigger("DodaiTrigger");
-    } 
-
+    }
 }

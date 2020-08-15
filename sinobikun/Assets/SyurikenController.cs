@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SyurikenController : MonoBehaviour
 {
+    [SerializeField] PlayerController pc;
+
     GameObject syuriken;
     private float speed=10.0f;
     private float time=0.0f;
@@ -18,11 +20,6 @@ public class SyurikenController : MonoBehaviour
         Vector3 pos=transform.position;
         pos.x+=speed*Time.deltaTime;
         transform.position=pos;
-        time+=Time.deltaTime;
-        if(time>3.0f)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -31,5 +28,9 @@ public class SyurikenController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    void OnBecameInvisible()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
