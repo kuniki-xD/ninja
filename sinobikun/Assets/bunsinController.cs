@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bunsinController : MonoBehaviour
 {
+    Animator animator;
+    
     public int bunsincount=0;
 
     [SerializeField] private float _velocity = 0.5f;
@@ -14,6 +16,7 @@ public class bunsinController : MonoBehaviour
 
     void Start()
     {
+        this.animator=GetComponent<Animator>();
         this.player=GameObject.Find("idle01");
         if (player != null)
         {
@@ -24,7 +27,6 @@ public class bunsinController : MonoBehaviour
 
     void Update()
     {
-
         transform.localScale=new Vector3(1.13f,1.18f,transform.localScale.z);
         Vector3 playerPos=transform.position;
         if (player != null)
@@ -34,6 +36,14 @@ public class bunsinController : MonoBehaviour
         else
         {
             Debug.Log("Playerがnull");
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject obj;
+            obj=Instantiate(syurikenPrefab);
+            obj.transform.position=transform.position;
+            this.animator.SetTrigger("AttackTrigger");
         }
 
         if(Input.GetKey(KeyCode.RightArrow))

@@ -115,6 +115,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bunsincount: 8
-  _velocity: 2
+  _velocity: 3
   syurikenPrefab: {fileID: 3902150182339311943, guid: f39906ac3bbd04263962ae73915fe9a4,
     type: 3}

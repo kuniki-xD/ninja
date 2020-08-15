@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip gekihaSE;
     AudioSource aud;
 
-    public int sinobicount=0;
     public int health;
     public int syurikenhoukou;
 
@@ -126,16 +125,7 @@ public class PlayerController : MonoBehaviour
     public void Spawn()
     {
         this.aud.PlayOneShot(this.gekihaSE);
-        if(sinobicount==0)
-        {
-            bunsinObjectList.Add(Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity) as GameObject);
-            sinobicount++;
-        }
-        else if(sinobicount>0&&sinobicount<4)
-        {
-            bunsinObjectList.Add(Instantiate(bunsinPrefab,new Vector3(transform.position.x-sinobicount,transform.position.y,transform.position.z),Quaternion.identity) as GameObject);
-            sinobicount++;
-        }
+        bunsinObjectList.Add(Instantiate(bunsinPrefab,new Vector3(transform.position.x,transform.position.y,transform.position.z),Quaternion.identity) as GameObject);
     }
     public void Dodai()
     {
