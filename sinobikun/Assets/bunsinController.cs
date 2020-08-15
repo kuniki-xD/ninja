@@ -27,7 +27,7 @@ public class bunsinController : MonoBehaviour
 
         transform.localScale=new Vector3(1.13f,1.18f,transform.localScale.z);
         Vector3 playerPos=transform.position;
-        transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),playerPos.y,playerPos.z);
+        transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),player.transform.position.y,playerPos.z);
 
         if(Input.GetKey(KeyCode.RightArrow))
         {
