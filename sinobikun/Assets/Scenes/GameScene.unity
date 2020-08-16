@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1472607630}
   bc: {fileID: 3342267624865913260, guid: c0efa37a8c5eb4715b01d72acc283fb6, type: 3}
-  health: 5
+  health: 13
 --- !u!212 &148335975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1472607630}
   bc: {fileID: 3342267624865913260, guid: c0efa37a8c5eb4715b01d72acc283fb6, type: 3}
-  health: 5
+  health: 15
 --- !u!212 &187997084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1472607630}
   bc: {fileID: 3342267624865913260, guid: c0efa37a8c5eb4715b01d72acc283fb6, type: 3}
-  health: 5
+  health: 11
 --- !u!212 &283924239
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1472607630}
   bc: {fileID: 3342267624865913260, guid: c0efa37a8c5eb4715b01d72acc283fb6, type: 3}
-  health: 5
+  health: 7
 --- !u!212 &342807785
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21871,7 +21871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1472607630}
   bc: {fileID: 3342267624865913260, guid: c0efa37a8c5eb4715b01d72acc283fb6, type: 3}
-  health: 5
+  health: 17
 --- !u!212 &1663502618
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22142,7 +22142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pc: {fileID: 1472607630}
   bc: {fileID: 3342267624865913260, guid: c0efa37a8c5eb4715b01d72acc283fb6, type: 3}
-  health: 5
+  health: 9
 --- !u!212 &1833125964
 SpriteRenderer:
   m_ObjectHideFlags: 0
