@@ -33,10 +33,6 @@ public class bunsinController : MonoBehaviour
         {
             transform.position=new Vector3(playerPos.x + (_velocity * Time.deltaTime * _direction),player.transform.position.y,playerPos.z);
         }
-        else
-        {
-            Debug.Log("Playerがnull");
-        }
 
         if(Input.GetKeyDown(KeyCode.E))
         {
@@ -59,5 +55,10 @@ public class bunsinController : MonoBehaviour
         {
             transform.localScale=new Vector3(_direction,1,1);
         }
+    }
+    
+    void OnBecameInvisible()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
