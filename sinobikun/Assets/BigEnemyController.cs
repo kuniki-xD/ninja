@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BigEnemyController : MonoBehaviour
 {
@@ -41,8 +42,7 @@ public class BigEnemyController : MonoBehaviour
         health--;
         if(health<=0)
         {
-            Destroy(gameObject);
-            //SceneManager.LoadScene("Result");
+            SceneManager.LoadScene("Clear");
         }
     }
 }

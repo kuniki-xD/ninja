@@ -15,6 +15,6 @@ public class TitleController : MonoBehaviour
 
     private void onButtonDownAction()
     {
-        SceneManager.LoadSceneAsync("Select");
+        SceneManager.LoadSceneAsync("GameScene");
     }
 }
