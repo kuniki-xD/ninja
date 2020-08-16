@@ -95,9 +95,13 @@ public class PlayerController : MonoBehaviour
             this.aud.PlayOneShot(this.syurikenSE);
             this.animator.SetTrigger("AttackTrigger");
         }
-        if(Input.GetKeyDown(KeyCode.R)&& this.rigid2D.velocity.y==0)
+        if(Input.GetKeyDown(KeyCode.W)&& this.rigid2D.velocity.y==0)
         {
             Dodai();
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("GameOver");
         }
 
         if(transform.position.y<-10)
@@ -110,6 +114,12 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collider)
     {
         if(collider.gameObject.tag=="enemy")
+        {
+            this.aud.PlayOneShot(this.damageSE);
+            this.animator.SetTrigger("HurtTrigger");
+            health--;
+        }
+        if(collider.gameObject.tag=="bigenemy")
         {
             this.aud.PlayOneShot(this.damageSE);
             this.animator.SetTrigger("HurtTrigger");
@@ -131,7 +141,7 @@ public class PlayerController : MonoBehaviour
     {
         if (bunsinObjectList.Count > 0)
         {
-            Instantiate(dodaiPrefab,new Vector3(transform.position.x+1,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
+            Instantiate(dodaiPrefab,new Vector3(transform.position.x+_direction,transform.position.y+0.5f,transform.position.z),Quaternion.identity);
             this.animator.SetTrigger("DodaiTrigger");
             Destroy(bunsinObjectList[bunsinObjectList.Count - 1]);
             bunsinObjectList.RemoveAt(bunsinObjectList.Count - 1);

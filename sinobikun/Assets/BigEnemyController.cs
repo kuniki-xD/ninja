@@ -10,13 +10,17 @@ public class BigEnemyController : MonoBehaviour
     private float time=0f;
     public int health;
 
+    private Vector3 targetpos;
+
     void Start()
     {
         interval=10f;
+        targetpos=transform.position;
     }
 
     void Update()
     {
+        transform.position=new Vector3(Mathf.Sin(Time.time)*1.0f+targetpos.x,Mathf.Sin(Time.time)*1.0f+targetpos.y,targetpos.z);
         transform.localScale=new Vector3(-8.3f,transform.localScale.y,transform.localScale.z);
         time+=Time.deltaTime;
         enemyObjects=GameObject.FindGameObjectsWithTag("enemy");
@@ -26,7 +30,7 @@ public class BigEnemyController : MonoBehaviour
             if(time>interval)
             {
                 GameObject enemy=Instantiate(enemyPrefab);
-                enemy.transform.position=new Vector3(transform.position.x-10,transform.position.y-3,0);
+                enemy.transform.position=new Vector3(transform.position.x+10,transform.position.y-7.5f,0);
                 time=0f;
             }
         }
